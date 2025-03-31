@@ -44,6 +44,8 @@ function store(req, res) {
 }
 // Aggiorna un post esistente
 function update(req, res) {
+    const postId = parseInt(req.params.id);
+    const postIndex = posts.findIndex(post => post.id === postId);
 
 }
 module.exports = { index, show , destroy, store, update}
