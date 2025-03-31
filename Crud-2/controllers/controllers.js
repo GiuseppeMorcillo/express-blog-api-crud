@@ -30,6 +30,15 @@ function store(req, res) {
     if (!title || !content || !tags) {
         return res.status(400).json({ message: "Title e Content sono obbligatori" });
     }
+    
+    const newPost = {
+        id: posts.length ? posts[posts.length - 1].id + 1 : 1,
+        title,
+        content,
+        image: image || "default.jpg",
+        tags: tags || []
+    };
+
 
 }
 module.exports = { index, show , destroy,store}
