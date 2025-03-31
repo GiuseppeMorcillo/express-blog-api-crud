@@ -52,7 +52,7 @@ function update(req, res) {
     }
     const { title, content, image, tags } = req.body;
     posts[postIndex] = {
-        ...posts[postIndex],
+        ...posts[postIndex],  // Copia tutte le proprietà del post esistente
         title: title || posts[postIndex].title,
         content: content || posts[postIndex].content,
         image: image || posts[postIndex].image,
