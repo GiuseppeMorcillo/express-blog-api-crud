@@ -42,4 +42,8 @@ function store(req, res) {
     posts.push(newPost);
     res.status(201).json({ message: "Post creato con successo!", post: newPost });
 }
-module.exports = { index, show , destroy, store}
+// Aggiorna un post esistente
+function update(req, res) {
+
+}
+module.exports = { index, show , destroy, store, update}
