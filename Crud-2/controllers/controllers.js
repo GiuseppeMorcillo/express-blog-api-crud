@@ -23,4 +23,23 @@ function destroy(req, res) {
     console.log("Lista aggiornata:", posts);
     res.status(204).send();
 }
-module.exports = { index, show , destroy}
+function store(req, res) {
+    console.log("Dati ricevuti:", req.body);
+    const { title, content, image, tags } = req.body;
+
+    if (!title || !content) {
+        return res.status(400).json({ message: "Title e Content sono obbligatori" });
+    }
+
+    const newPost = {
+        id: posts.length ? posts[posts.length - 1].id + 1 : 1,
+        title,
+        content,
+        image: image || "default.jpg",
+        tags: tags || []
+    };
+
+    posts.push(newPost);
+    res.status(201).json({ message: "Post creato con successo!", post: newPost });
+}
+module.exports = { index, show , destroy,store}
