@@ -50,6 +50,7 @@ function update(req, res) {
     if (postIndex === -1) {
         return res.status(404).json({ message: "Post non trovato" });
     }
+    const { title, content, image, tags } = req.body;
 
 
 }
