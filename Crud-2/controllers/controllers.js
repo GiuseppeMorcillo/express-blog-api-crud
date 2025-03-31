@@ -47,5 +47,10 @@ function update(req, res) {
     const postId = parseInt(req.params.id);
     const postIndex = posts.findIndex(post => post.id === postId);
 
+    if (postIndex === -1) {
+        return res.status(404).json({ message: "Post non trovato" });
+    }
+
+
 }
 module.exports = { index, show , destroy, store, update}
