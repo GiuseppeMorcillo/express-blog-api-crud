@@ -27,5 +27,9 @@ function store(req, res) {
     console.log("Dati ricevuti:", req.body);
     const { title, content, image, tags } = req.body;
 
+    if (!title || !content || !tags) {
+        return res.status(400).json({ message: "Title e Content sono obbligatori" });
+    }
+
 }
 module.exports = { index, show , destroy,store}
