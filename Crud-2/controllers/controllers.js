@@ -39,6 +39,7 @@ function store(req, res) {
         tags: tags || []
     };
 
-
+    posts.push(newPost);
+    res.status(201).json({ message: "Post creato con successo!", post: newPost });
 }
-module.exports = { index, show , destroy,store}
+module.exports = { index, show , destroy, store}
