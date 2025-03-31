@@ -51,7 +51,15 @@ function update(req, res) {
         return res.status(404).json({ message: "Post non trovato" });
     }
     const { title, content, image, tags } = req.body;
+    posts[postIndex] = {
+        ...posts[postIndex],
+        title: title || posts[postIndex].title,
+        content: content || posts[postIndex].content,
+        image: image || posts[postIndex].image,
+        tags: tags || posts[postIndex].tags
+    };
 
+    res.json({ message: "Post aggiornato con successo!", post: posts[postIndex] });
 
 }
 module.exports = { index, show , destroy, store, update}
