@@ -8,6 +8,7 @@ function index(req, res) {
         )
     }
     res.json(filteredPosts)
+    //throw new Error("Prova errore errorHandler!"); // Forza un errore
 }
 //Restituisce un singolo post per L'ID
 function show(req, res) {

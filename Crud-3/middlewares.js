@@ -6,4 +6,11 @@ function notFound(req, res, next) {
         message: "Pagina non trovata"
     })
 }
-module.exports = {notFound};
+//Middleware per gestire gli errori
+function errorsHandler(err,req,res,next){
+    res.status(500);
+    res.json({
+        error: err.message
+    })
+}
+module.exports = {notFound,errorsHandler};
