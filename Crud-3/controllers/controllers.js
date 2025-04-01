@@ -62,4 +62,9 @@ function update(req, res) {
     res.json({ message: "Post aggiornato con successo!", post: posts[postIndex] });
 
 }
-module.exports = { index, show , destroy, store, update}
+// Middleware per gestire rotte inesistenti
+function notFoundHandler(req, res) {
+    res.status(404).json({ message: "Endpoint non trovato" });
+}
+
+module.exports = { index, show , destroy, store, update, notFoundHandler}
